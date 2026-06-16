@@ -1,0 +1,37 @@
+# --- Secrets ---
+.env
+.env.local
+*Key*.txt
+HossamKey.txt
+
+# --- Large media & third-party lecture content (never publish) ---
+*.mp4
+*.mov
+*.rar
+*.zip
+app/video/
+
+# --- Generated transcripts (keep only the redacted *.sample.json) ---
+app/lecture_transcripts/*.json
+!app/lecture_transcripts/*.sample.json
+
+# --- Runtime / logs ---
+upload_log.txt
+*.log
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# --- OS / editor cruft ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# --- Replit ---
+.replit
+replit.nix
+.config/

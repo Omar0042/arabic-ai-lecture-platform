@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة تحكم المعلم - منصة جامعة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/teacher.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-graduation-cap fa-2x"></i>
+                <h1>منصة جامعة</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="nav-link active" data-page="home">الرئيسية</a></li>
+                    <li><a href="#" class="nav-link" data-page="teacher-dashboard">لوحة التحكم</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <button><i class="fas fa-bell"></i></button>
+                <button><i class="fas fa-cog"></i></button>
+                <div class="user-profile" style="cursor: pointer;">
+                    <div class="avatar">د</div>
+                    <div>
+                        <span>د. أحمد محمد</span>
+                        <div class="teacher-badge">مُعلم</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="dashboard">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <h2>أقسام الجامعة</h2>
+                <ul class="department-list">
+                    <li><a href="#" class="active"><i class="fas fa-laptop-code"></i> علوم الحاسوب</a></li>
+                    <li><a href="#"><i class="fas fa-flask"></i> الهندسة الكيميائية</a></li>
+                    <li><a href="#"><i class="fas fa-calculator"></i> الرياضيات</a></li>
+                    <li><a href="#"><i class="fas fa-atom"></i> الفيزياء</a></li>
+                    <li><a href="#"><i class="fas fa-dna"></i> علم الأحياء</a></li>
+                    <li><a href="#"><i class="fas fa-balance-scale"></i> القانون</a></li>
+                    <li><a href="#"><i class="fas fa-book"></i> الأدب العربي</a></li>
+                    <li><a href="#"><i class="fas fa-business-time"></i> إدارة الأعمال</a></li>
+                    <li><a href="#"><i class="fas fa-language"></i> اللغات الأجنبية</a></li>
+                    <li><a href="#"><i class="fas fa-user-md"></i> الطب البشري</a></li>
+                </ul>
+            </aside>
+
+            <!-- Teacher Home Page -->
+            <main class="main-content" id="home-page">
+                <!-- Welcome Card -->
+                <div class="welcome-card">
+                    <h2>مرحباً بك، د. أحمد!</h2>
+                    <p>استخدم لوحة التحكم لإدارة المحاضرات والرد على أسئلة الطلاب.</p>
+                </div>
+
+                <!-- Lectures Section (Dynamic) -->
+                <section class="lectures-section">
+                    <div class="section-header">
+                        <h2>المحاضرات المتاحة</h2>
+                        <div class="filter-options">
+                            <button class="filter-btn active">الكل</button>
+                            <button class="filter-btn">هذا الأسبوع</button>
+                            <button class="filter-btn">الجديد</button>
+                            <button class="filter-btn">الأكثر مشاهدة</button>
+                        </div>
+                    </div>
+                    <div class="lectures-grid" id="teacher-lectures-grid">
+                        <!-- سيتم تعبئتها بالجافاسكريبت -->
+                    </div>
+                </section>
+
+                <!-- AI Assistant -->
+                <section class="ai-section" id="aiSection">
+                    <div class="ai-header">
+                        <div class="ai-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div>
+                            <h2>مساعد الذكاء الاصطناعي التعليمي</h2>
+                            <p>اسأل عن أي محاضرة أو احصل على ملخص</p>
+                        </div>
+                    </div>
+                    <div class="ai-chat" id="aiChat">
+                        <div class="message ai-message">
+                            <p>مرحباً! أنا مساعدك التعليمي الذكي. كيف يمكنني مساعدتك اليوم؟</p>
+                            <div class="message-info">مساعد جامعة, الآن</div>
+                        </div>
+                        <div class="message ai-message">
+                            <p>يمكنني مساعدتك في:</p>
+                            <ul>
+                                <li>تلخيص المحاضرات</li>
+                                <li>شرح المفاهيم الصعبة</li>
+                                <li>الإجابة على أسئلة المنهج</li>
+                                <li>المساعدة في حل الواجبات</li>
+                            </ul>
+                            <div class="message-info">مساعد جامعة, الآن</div>
+                        </div>
+                    </div>
+                    <div class="ai-input-group">
+                        <input type="text" class="ai-input" id="aiInput" placeholder="اكتب سؤالك هنا...">
+                        <button class="ai-send-btn" id="aiSendBtn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Lecture View Page -->
+            <div class="pages-container" id="lecture-view-page">
+                <div class="page-header">
+                    <h2><i class="fas fa-video"></i> مشاهدة المحاضرة: <span id="lecture-title"></span></h2>
+                </div>
+                <div class="page-content">
+                    <div class="lecture-view-container">
+                        <div class="video-container">
+                            <div class="video-player">
+                                <video id="lecture-view-video" width="100%" controls style="background:#222;">
+                                    <source id="lecture-view-video-source" src="" type="video/mp4">
+                                    متصفحك لا يدعم تشغيل الفيديو.
+                                </video>
+                            </div>
+                            <div class="video-info">
+                                <h3 id="current-lecture-title"></h3>
+                                <p><i class="far fa-clock"></i> مدة المحاضرة: <span id="lecture-duration"></span></p>
+                                <p><i class="far fa-calendar"></i> تاريخ النشر: <span id="lecture-date"></span></p>
+                                <p><i class="fas fa-chalkboard-teacher"></i> المحاضر: د. أحمد محمد</p>
+                                <div class="video-actions">
+                                    <button class="btn" id="download-lecture-btn">
+                                        <i class="fas fa-download"></i> تحميل المحاضرة
+                                    </button>
+                                    <button class="btn">
+                                        <i class="fas fa-bookmark"></i> حفظ للمشاهدة لاحقاً
+                                    </button>
+                                    <button class="btn">
+                                        <i class="fas fa-share-alt"></i> مشاركة
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat-container">
+                            <div class="chat-tabs">
+                                <button class="chat-tab active" data-chat="ai">مساعد الذكاء الاصطناعي</button>
+                                <button class="chat-tab" data-chat="questions">أسئلة الطلاب</button>
+                                <div class="chat-controls">
+                                    <button class="size-btn" title="تكبير">
+                                        <i class="fas fa-expand"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="chat-content active" id="ai-chat-content">
+                                <div class="message ai-message">
+                                    <p>مرحباً! أنا هنا لمساعدتك في فهم هذه المحاضرة. يمكنك سؤالي عن أي مفهوم أو طلب تلخيص جزء معين.</p>
+                                    <div class="message-info">مساعد جامعة, الآن</div>
+                                </div>
+                            </div>
+                            <div class="chat-content" id="questions-chat-content">
+                                <!-- سيتم تعبئتها بالجافاسكريبت -->
+                            </div>
+                            <div class="chat-input-group">
+                                <input type="text" class="chat-input" id="chat-input" placeholder="اكتب رسالتك هنا...">
+                                <button class="chat-send-btn" id="chat-send">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Teacher Dashboard -->
+            <div class="pages-container" id="teacher-dashboard-page">
+                <div class="page-header">
+                    <h2><i class="fas fa-chalkboard-teacher"></i> لوحة تحكم المعلم</h2>
+                </div>
+                <div class="page-content">
+                    <div class="teacher-stats">
+                        <div class="stat-card teacher">
+                            <div class="stat-value" id="stat-lectures">0</div>
+                            <div class="stat-label">المحاضرات المرفوعة</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">856</div>
+                            <div class="stat-label">الطلاب المسجلين</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">142</div>
+                            <div class="stat-label">الأسئلة المجابة</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">92%</div>
+                            <div class="stat-label">رضى الطلاب</div>
+                        </div>
+                    </div>
+                    <div class="upload-section">
+                        <div class="upload-header">
+                            <div class="upload-icon">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </div>
+                            <h3>رفع محاضرة جديدة</h3>
+                        </div>
+                        <form id="upload-form" class="upload-form" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label>عنوان المحاضرة</label>
+                                <input type="text" id="lecture-title-input" placeholder="أدخل عنوان المحاضرة" required>
+                            </div>
+                            <div class="form-group">
+                                <label>المساق</label>
+                                <select id="lecture-course-input" required>
+                                    <option value="">اختر المساق</option>
+                                    <option>خوارزميات وهياكل البيانات</option>
+                                    <option>قواعد البيانات المتقدمة</option>
+                                    <option>شبكات الحاسوب</option>
+                                    <option>أمن المعلومات</option>
+                                    <option>حسبان</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>وصف المحاضرة</label>
+                                <textarea id="lecture-description-input" placeholder="أدخل وصفاً للمحاضرة"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>مدة المحاضرة</label>
+                                <input type="text" id="lecture-duration-input" placeholder="مثال: 45 دقيقة">
+                            </div>
+                            <div class="form-group">
+                                <label>رفع فيديو المحاضرة</label>
+                                <input type="file" id="lecture-video-input" accept="video/*" required>
+                            </div>
+                            <button type="submit" class="btn" id="upload-lecture-btn">
+                                <i class="fas fa-upload"></i> رفع المحاضرة
+                            </button>
+                        </form>
+                    </div>
+                    <div class="teacher-lectures">
+                        <h3><i class="fas fa-video"></i> المحاضرات المرفوعة</h3>
+                        <div class="lecture-list">
+                            <!-- سيتم تعبئتها بالجافاسكريبت -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>عن المنصة</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-eye"></i> رؤيتنا</a></li>
+                        <li><a href="#"><i class="fas fa-users"></i> فريق العمل</a></li>
+                        <li><a href="#"><i class="fas fa-handshake"></i> الشركاء</a></li>
+                        <li><a href="#"><i class="fas fa-briefcase"></i> وظائف</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>الموارد</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-book"></i> المكتبة الرقمية</a></li>
+                        <li><a href="#"><i class="fas fa-video"></i> دروس الفيديو</a></li>
+                        <li><a href="#"><i class="fas fa-file-alt"></i> الملخصات</a></li>
+                        <li><a href="#"><i class="fas fa-search"></i> الأبحاث العلمية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>الدعم</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+                        <li><a href="#"><i class="fas fa-book-open"></i> الدليل الإرشادي</a></li>
+                        <li><a href="#"><i class="fas fa-headset"></i> الدعم الفني</a></li>
+                        <li><a href="#"><i class="fas fa-bug"></i> الإبلاغ عن مشكلة</a></li>
+                        <li><a href="#"><i class="fas fa-lightbulb"></i> مقترحات التطوير</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>تابعنا</h3>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-facebook"></i> فيسبوك</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> تويتر</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> إنستغرام</a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i> يوتيوب</a></li>
+                        <li><a href="#"><i class="fab fa-linkedin"></i> لينكدإن</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 منصة جامعة التعليمية. جميع الحقوق محفوظة.
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/storage.js"></script>
+    <script src="assets/js/videoStorage.js"></script>
+    <script src="assets/js/common.js"></script>  <!-- Updated version -->
+    <script src="assets/js/teacher.js"></script>
+    <script src="voxtral_integration.js"></script>
+    <script>
+        // ...existing code...
+
+        // Show lecture view and set video source
+        function showLectureView(lecture) {
+            document.getElementById('lecture-view-video-source').src = lecture.videoPath;
+            document.getElementById('lecture-view-video').load();
+            document.getElementById('lecture-title').textContent = lecture.title;
+            document.getElementById('current-lecture-title').textContent = lecture.title;
+            document.getElementById('lecture-duration').textContent = lecture.duration;
+            document.getElementById('lecture-date').textContent = lecture.date;
+            document.getElementById('lecture-view-page').style.display = 'block';
+            document.getElementById('home-page').style.display = 'none';
+            document.getElementById('teacher-dashboard-page').style.display = 'none';
+            // Download button
+            document.getElementById('download-lecture-btn').onclick = function () {
+                const a = document.createElement('a');
+                a.href = lecture.videoPath;
+                a.download = lecture.title + ".mp4";
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            };
+        }
+        // ...existing code...
+    </script>
+    
+
+    <script>
+    // Enhanced upload success handler
+    document.getElementById('upload-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        
+        // Your existing upload code...
+        // After successful upload, add this:
+        
+        fetch('upload_lecture.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('تم رفع المحاضرة بنجاح!');
+                
+                // Trigger Voxtral processing
+                window.handleLectureUploadSuccess = function(lectureData) {
+                    voxtralAI.autoProcessNewLecture(lectureData);
+                };
+                
+                window.handleLectureUploadSuccess(data.lecture);
+                
+                document.getElementById('upload-form').reset();
+                loadTeacherLectures();
+                loadLecturesGrid();
+            }
+        });
+    });
+    </script>
+</body>
+
+</html>

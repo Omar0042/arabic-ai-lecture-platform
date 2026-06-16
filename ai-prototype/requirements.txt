@@ -1,0 +1,5 @@
+# Python dependencies for the AI prototype (transcribe_and_qa.py)
+requests
+
+# System dependency (NOT installable via pip): ffmpeg must be available on your PATH.
+# https://ffmpeg.org/download.html

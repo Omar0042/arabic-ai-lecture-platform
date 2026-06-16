@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة جامعة التعليمية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/common.css">
+    <style>
+        .landing-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .landing-logo {
+            margin-bottom: 30px;
+        }
+        
+        .landing-logo i {
+            font-size: 5rem;
+        }
+        
+        .landing-title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .landing-description {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+        
+        .role-selection {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .role-card {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 40px;
+            width: 300px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .role-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .role-card i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        
+        .role-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .role-description {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="landing-container">
+        <div class="landing-logo">
+            <i class="fas fa-graduation-cap"></i>
+        </div>
+        <h1 class="landing-title">منصة جامعة التعليمية الذكية</h1>
+        <p class="landing-description">منصة تعليمية متكاملة توفر بيئة تعلم تفاعلية باستخدام الذكاء الاصطناعي لتحسين تجربة التعليم والتعلم للطلاب والمعلمين</p>
+        
+        <div class="role-selection">
+            <div class="role-card" onclick="window.location.href='teacher.html'">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <h2 class="role-title">دخول كمعلم</h2>
+                <p class="role-description">إدارة المحاضرات، متابعة الطلاب، الإجابة على الأسئلة، واستخدام مساعد الذكاء الاصطناعي لتحسين التعليم</p>
+            </div>
+            
+            <div class="role-card" onclick="window.location.href='student.html'">
+                <i class="fas fa-user-graduate"></i>
+                <h2 class="role-title">دخول كطالب</h2>
+                <p class="role-description">مشاهدة المحاضرات، حل الواجبات، التفاعل مع المعلمين، واستخدام مساعد الذكاء الاصطناعي للتعلم الفعال</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
